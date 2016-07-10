@@ -1,0 +1,29 @@
+{
+  "name": "function.js",
+  "version": "0.1.0",
+  "description": "Functional programming just easier",
+  "main": "lib/function.js",
+  "scripts": {
+    "build": "browserify lib/function.js -o build/function.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanwimmer128/function.js.git"
+  },
+  "keywords": [
+    "function.js",
+    "fn.js",
+    "function",
+    "functional",
+    "programming"
+  ],
+  "author": "Stefan Wimmer <stefanwimmer128@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefanwimmer128/function.js/issues"
+  },
+  "homepage": "https://github.com/stefanwimmer128/function.js#readme",
+  "devDependencies": {
+    "browserify": "^13.0.1"
+  }
+}
