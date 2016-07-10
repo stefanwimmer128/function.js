@@ -171,7 +171,8 @@ fn.some = func =>
  * @param arr {Array} Array to calculate sum of
  * @return {Number} Calculated sum
  */
-fn.sum = fn.reduce((sum, x) => sum + x)(0);
+fn.sum = (arr) =>
+    arr.reduce((sum, x) => sum + x, 0);
 
 /**
  * function.js version
@@ -184,7 +185,7 @@ module.exports = fn;
 },{"../package.json":2}],2:[function(require,module,exports){
 module.exports={
   "name": "function.js",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Functional programming just easier",
   "main": "lib/function.js",
   "scripts": {

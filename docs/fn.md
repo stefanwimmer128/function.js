@@ -9,7 +9,6 @@ function.js namespace
 **Author:** Stefan Wimmer <stefanwimmer128@gmail.com>  
 
 * [fn](#fn)
-    * [.sum](#fn.sum) ⇒ <code>Number</code>
     * [.curry(func)](#fn.curry) ⇒ <code>function</code>
     * [.uncurry(curried)](#fn.uncurry) ⇒ <code>function</code>
     * [.bind(fn, args, thisArg)](#fn.bind) ⇒ <code>function</code>
@@ -24,19 +23,8 @@ function.js namespace
     * [.each(func)](#fn.each) ⇒ <code>function</code>
     * [.every(func)](#fn.every) ⇒ <code>function</code>
     * [.some(func)](#fn.some) ⇒ <code>function</code>
+    * [.sum(arr)](#fn.sum) ⇒ <code>Number</code>
     * [.version()](#fn.version) ⇒ <code>String</code>
-
-<a name="fn.sum"></a>
-
-### fn.sum ⇒ <code>Number</code>
-Calculate sum of all numbers in the Array
-
-**Kind**: static property of <code>[fn](#fn)</code>  
-**Returns**: <code>Number</code> - Calculated sum  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| arr | <code>Array</code> | Array to calculate sum of |
 
 <a name="fn.curry"></a>
 
@@ -208,6 +196,18 @@ Curried Array.prototype.some function
 | Param | Type | Description |
 | --- | --- | --- |
 | func | <code>function</code> | Callback function |
+
+<a name="fn.sum"></a>
+
+### fn.sum(arr) ⇒ <code>Number</code>
+Calculate sum of all numbers in the Array
+
+**Kind**: static method of <code>[fn](#fn)</code>  
+**Returns**: <code>Number</code> - Calculated sum  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| arr | <code>Array</code> | Array to calculate sum of |
 
 <a name="fn.version"></a>
 
