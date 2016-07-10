@@ -36,4 +36,4 @@ curried(1)(2)(3)(4); // 10
 uncurried(1, 2, 3, 4); // 10
 ```
 
-More documentation will follow soon...
+Complete documentation and more examples can be found [here](https://github.com/stefanwimmer128/function.js/tree/master/docs).

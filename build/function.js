@@ -3,6 +3,10 @@
  * Created by Stefan Wimmer <stefanwimmer128@gmail.com> on 10.07.16.
  */
 
+/**
+ * function.js namespace
+ * @author Stefan Wimmer <stefanwimmer128@gmail.com>
+ */
 const fn = {};
 
 /**
@@ -41,13 +45,59 @@ fn.uncurry = (curried) =>
  * Binds function to custom "this" with arguments
  * @param fn {Function} Function to bind
  * @param args {Array} Arguments to bind
- * @param _this {Object=null} this to bind to
+ * @param thisArg {Object} this to bind to
  * @return {Function} Bound function
  */
-fn.bind = (fn, args, _this = null) =>
-    fn.bind(_this, ...args);
+fn.bind = (fn, args, thisArg = null) =>
+    fn.bind(thisArg, ...args);
 
 /**
+ * Curried Array.prototype.map function
+ * @param func {Function} Callback function
+ * @return {fn.CurriedMap} Function that takes the Array to map
+ */
+fn.map = func =>
+    arr =>
+        arr.map(func);
+
+/**
+ * Curried Array.prototype.filter function
+ * @param func {Function} Callback function
+ * @return {Function} Function that takes the Array to filter
+ */
+fn.filter = func =>
+    arr =>
+        arr.filter(func);
+
+/**
+ * Curried Array.prototype.find function
+ * @param func {Function} Callback function
+ * @return {Function} Function that takes the Array to find
+ */
+fn.find = func =>
+    arr =>
+        arr.find(func);
+
+/**
+ * Curried Array.prototype.reject function
+ * @param func {Function} Callback function
+ * @return {Function} Function that takes the Array to reject
+ */
+fn.reject = func =>
+    arr =>
+        arr.reject(func);
+
+/**
+ * Curried Array.prototype.reduce function
+ * @param func {Function} Callback function
+ * @return {Function} Function that takes the Array to reduce
+ */
+fn.reduce = func =>
+    arr =>
+        arr.reduce(func);
+
+/**
+ * function.js version
  * @return {String} function.js version
  */
 fn.version = () => require("../package.json").version;
@@ -57,11 +107,11 @@ module.exports = fn;
 },{"../package.json":2}],2:[function(require,module,exports){
 module.exports={
   "name": "function.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Functional programming just easier",
   "main": "lib/function.js",
   "scripts": {
-    "build": "browserify lib/function.js -o build/function.js"
+    "build": "browserify lib/function.js -o build/function.js; jsdoc2md lib/function.js > docs/function.js.md"
   },
   "repository": {
     "type": "git",
@@ -81,7 +131,8 @@ module.exports={
   },
   "homepage": "https://github.com/stefanwimmer128/function.js#readme",
   "devDependencies": {
-    "browserify": "^13.0.1"
+    "browserify": "^13.0.1",
+    "jsdoc-to-markdown": "^1.3.6"
   }
 }
 
