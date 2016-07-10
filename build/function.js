@@ -52,6 +52,26 @@ fn.bind = (fn, args, thisArg = null) =>
     fn.bind(thisArg, ...args);
 
 /**
+ * Composes functions
+ * @param func {...Function} Functions to compose
+ * @returns {Function} Composed function
+ */
+fn.compose = (...func) =>
+    fn.bind(function compose(i, ...args)
+    {
+        return i === func.length
+            ? func[0](...args)
+            : compose(i + 1, func[i](...args));
+    }, [ 0 ]);
+
+fn.once = (func) =>
+{
+    let done = false;
+    
+    return (...args) => done ? undefined : (done = true, func(...args));
+};
+
+/**
  * Curried Array.prototype.map function
  * @param func {Function} Callback function
  * @return {Function} Function that takes the Array to map
@@ -79,6 +99,15 @@ fn.find = func =>
         arr.find(func);
 
 /**
+ * Curried Array.prototype.findIndex function
+ * @param func {Function} Callback function
+ * @return {Function} Function that takes the Array to findIndex
+ */
+fn.findIndex = func =>
+    arr =>
+        arr.findIndex(func);
+
+/**
  * Curried Array.prototype.reject function
  * @param func {Function} Callback function
  * @return {Function} Function that takes the Array to reject
@@ -90,7 +119,7 @@ fn.reject = func =>
 /**
  * Curried Array.prototype.reduce function
  * @param func {Function} Callback function
- * @return {Function} Function that takes the Array to reduce
+ * @return {Function} Function that takes the starting point and then the Array to reduce
  */
 fn.reduce = func =>
     arr =>
@@ -111,6 +140,40 @@ fn.pluck = (arr, key) =>
 };
 
 /**
+ * Curried Array.prototype.forEach function
+ * @param func {Function} Callback function
+ * @return {Function} Function that takes the Array to forEach
+ */
+fn.each = func =>
+    arr =>
+        arr.forEach(func);
+
+/**
+ * Curried Array.prototype.every function
+ * @param func {Function} Callback function
+ * @return {Function} Function that takes the Array to every
+ */
+fn.every = func =>
+    arr =>
+        arr.every(func);
+
+/**
+ * Curried Array.prototype.some function
+ * @param func {Function} Callback function
+ * @return {Function} Function that takes the Array to some
+ */
+fn.some = func =>
+    arr =>
+        arr.some(func);
+
+/**
+ * Calculate sum of all numbers in the Array
+ * @param arr {Array} Array to calculate sum of
+ * @return {Number} Calculated sum
+ */
+fn.sum = fn.reduce((sum, x) => sum + x)(0);
+
+/**
  * function.js version
  * @return {String} function.js version
  */
@@ -121,11 +184,11 @@ module.exports = fn;
 },{"../package.json":2}],2:[function(require,module,exports){
 module.exports={
   "name": "function.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Functional programming just easier",
   "main": "lib/function.js",
   "scripts": {
-    "build": "browserify lib/function.js -o build/function.js; jsdoc2md lib/function.js > docs/fn.md"
+    "build": "browserify lib/function.js -o build/function.js; echo \"# function.js Documentation\n\" > docs/fn.md; jsdoc2md lib/function.js >> docs/fn.md"
   },
   "repository": {
     "type": "git",
