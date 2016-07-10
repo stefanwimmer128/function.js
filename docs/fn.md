@@ -159,7 +159,7 @@ pluck extracts a specific "key" from all objects within the array.
 | Param | Type | Description |
 | --- | --- | --- |
 | arr |  | Array to pluck |
-| [key] | <code>String</code> |  |
+| [key] | <code>String</code> | (Optional) Key for extraction |
 
 <a name="fn.each"></a>
 
