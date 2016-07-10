@@ -54,7 +54,7 @@ fn.bind = (fn, args, thisArg = null) =>
 /**
  * Curried Array.prototype.map function
  * @param func {Function} Callback function
- * @return {fn.CurriedMap} Function that takes the Array to map
+ * @return {Function} Function that takes the Array to map
  */
 fn.map = func =>
     arr =>
@@ -97,6 +97,20 @@ fn.reduce = func =>
         arr.reduce(func);
 
 /**
+ * pluck extracts a specific "key" from all objects within the array.
+ * @param arr Array to pluck
+ * @param [key] {String}
+ * @return {Array|Function} Returns array with all extracted values if all parameters are given, if not a function which takes the key argument is returned 
+ */
+fn.pluck = (arr, key) =>
+{
+    if (arr !== undefined && key !== undefined)
+        return arr.map(x => x[key]);
+    
+    return fn.bind(fn.pluck, [ arr ]);
+};
+
+/**
  * function.js version
  * @return {String} function.js version
  */
@@ -107,11 +121,11 @@ module.exports = fn;
 },{"../package.json":2}],2:[function(require,module,exports){
 module.exports={
   "name": "function.js",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Functional programming just easier",
   "main": "lib/function.js",
   "scripts": {
-    "build": "browserify lib/function.js -o build/function.js; jsdoc2md lib/function.js > docs/function.js.md"
+    "build": "browserify lib/function.js -o build/function.js; jsdoc2md lib/function.js > docs/fn.md"
   },
   "repository": {
     "type": "git",

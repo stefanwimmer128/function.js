@@ -1,10 +1,10 @@
 {
   "name": "function.js",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Functional programming just easier",
   "main": "lib/function.js",
   "scripts": {
-    "build": "browserify lib/function.js -o build/function.js; jsdoc2md lib/function.js > docs/function.js.md"
+    "build": "browserify lib/function.js -o build/function.js; jsdoc2md lib/function.js > docs/fn.md"
   },
   "repository": {
     "type": "git",

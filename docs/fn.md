@@ -10,11 +10,12 @@ function.js namespace
     * [.curry(func)](#fn.curry) ⇒ <code>function</code>
     * [.uncurry(curried)](#fn.uncurry) ⇒ <code>function</code>
     * [.bind(fn, args, thisArg)](#fn.bind) ⇒ <code>function</code>
-    * [.map(func)](#fn.map) ⇒ <code>fn.CurriedMap</code>
+    * [.map(func)](#fn.map) ⇒ <code>function</code>
     * [.filter(func)](#fn.filter) ⇒ <code>function</code>
     * [.find(func)](#fn.find) ⇒ <code>function</code>
     * [.reject(func)](#fn.reject) ⇒ <code>function</code>
     * [.reduce(func)](#fn.reduce) ⇒ <code>function</code>
+    * [.pluck(arr, [key])](#fn.pluck) ⇒ <code>Array</code> &#124; <code>function</code>
     * [.version()](#fn.version) ⇒ <code>String</code>
 
 <a name="fn.curry"></a>
@@ -57,11 +58,11 @@ Binds function to custom "this" with arguments
 
 <a name="fn.map"></a>
 
-### fn.map(func) ⇒ <code>fn.CurriedMap</code>
+### fn.map(func) ⇒ <code>function</code>
 Curried Array.prototype.map function
 
 **Kind**: static method of <code>[fn](#fn)</code>  
-**Returns**: <code>fn.CurriedMap</code> - Function that takes the Array to map  
+**Returns**: <code>function</code> - Function that takes the Array to map  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -114,6 +115,19 @@ Curried Array.prototype.reduce function
 | Param | Type | Description |
 | --- | --- | --- |
 | func | <code>function</code> | Callback function |
+
+<a name="fn.pluck"></a>
+
+### fn.pluck(arr, [key]) ⇒ <code>Array</code> &#124; <code>function</code>
+pluck extracts a specific "key" from all objects within the array.
+
+**Kind**: static method of <code>[fn](#fn)</code>  
+**Returns**: <code>Array</code> &#124; <code>function</code> - Returns array with all extracted values if all parameters are given, if not a function which takes the key argument is returned  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| arr |  | Array to pluck |
+| [key] | <code>String</code> |  |
 
 <a name="fn.version"></a>
 
