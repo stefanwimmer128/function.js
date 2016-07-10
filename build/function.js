@@ -185,7 +185,7 @@ module.exports = fn;
 },{"../package.json":2}],2:[function(require,module,exports){
 module.exports={
   "name": "function.js",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Functional programming just easier",
   "main": "lib/function.js",
   "scripts": {
