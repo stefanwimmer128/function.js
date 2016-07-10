@@ -11,7 +11,7 @@ function.js namespace
 * [fn](#fn)
     * [.curry(func)](#fn.curry) ⇒ <code>function</code>
     * [.uncurry(curried)](#fn.uncurry) ⇒ <code>function</code>
-    * [.bind(fn, args, thisArg)](#fn.bind) ⇒ <code>function</code>
+    * [.bind(fn, [args], [thisArg])](#fn.bind) ⇒ <code>function</code>
     * [.compose(...func)](#fn.compose) ⇒ <code>function</code>
     * [.map(func)](#fn.map) ⇒ <code>function</code>
     * [.filter(func)](#fn.filter) ⇒ <code>function</code>
@@ -52,7 +52,7 @@ Just the opposite of fn.curry
 
 <a name="fn.bind"></a>
 
-### fn.bind(fn, args, thisArg) ⇒ <code>function</code>
+### fn.bind(fn, [args], [thisArg]) ⇒ <code>function</code>
 Binds function to custom "this" with arguments
 
 **Kind**: static method of <code>[fn](#fn)</code>  
@@ -61,8 +61,8 @@ Binds function to custom "this" with arguments
 | Param | Type | Description |
 | --- | --- | --- |
 | fn | <code>function</code> | Function to bind |
-| args | <code>Array</code> | Arguments to bind |
-| thisArg | <code>Object</code> | this to bind to |
+| [args] | <code>Array</code> | (Optional) Arguments to bind |
+| [thisArg] | <code>Object</code> | (Optional) this to bind to |
 
 <a name="fn.compose"></a>
 
